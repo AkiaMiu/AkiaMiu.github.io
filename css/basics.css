@@ -24,6 +24,14 @@ body {
   margin: 0 auto;
   animation: preload-end-text 0.4s 3.1s forwards;
 }
+.preload-animation .preload-animation-confines .preload-text::before {
+  content: "";
+  background-color: #16061D;
+  height: 40px;
+  width: 300px;
+  transform: translateX(-100%);
+  animation: preload-end-text-bar 0.3s 0.5s forwards;
+}
 .preload-animation .preload-animation-confines .preload-text::after {
   content: "_";
   animation: preload-after 0.65s 4 forwards;
@@ -165,5 +173,13 @@ body {
     opacity: 0;
     transform: translateX(100%);
     pointer-events: none;
+  }
+}
+@keyframes preload-end-text-bar {
+  00% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
