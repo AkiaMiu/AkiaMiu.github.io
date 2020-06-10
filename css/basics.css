@@ -31,7 +31,8 @@
   z-index: 10;
 }
 .title-grid-wrapper .main-menu .button .text-wiggle-override {
-  transform: translateX(-100%);
+  position: absolute;
+  left: 25px;
 }
 .title-grid-wrapper .main-menu .button::before {
   content: "[";
