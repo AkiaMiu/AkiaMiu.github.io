@@ -48,22 +48,18 @@ body {
     color: @layout-light;
     font-size: 28px;
     font-family: 'Courier New', Courier, monospace;
-    animation: preload-end 2s 4.9s forwards;
+    animation: preload-end 2s 4s forwards;
 
     .preload-animation-confines {
-        display: block;
-        width: 219px;
-        height: 40px;
-        overflow: hidden;
-        
+        pointer-events: none;
         .preload-text {
             display: block;
             margin: 0 auto;
-            animation: preload-end-text .4s 4.3s forwards;
+            animation: preload-end-text .4s 3.1s forwards;
 
             &::after {
                 content: "_";
-                animation: preload-after .65s 6 forwards;
+                animation: preload-after .65s 4 forwards;
                 opacity: 1;
             }
         }
@@ -72,7 +68,7 @@ body {
 
 
 
-.title-grid-wrapper {
+.home-grid-wrapper {
     position: absolute;
     top: 0;
     left: 0;
@@ -89,9 +85,9 @@ body {
         display: flex;
         flex-wrap: wrap;
         max-width: 200px;
-        padding: 12px;
-        grid-column: 1 / 2;
-        grid-row: 4;
+        padding-left: 18px;
+        grid-column: ~"3/4";
+        grid-row: 2;
 
         .button {
             text-decoration: none;
@@ -110,7 +106,7 @@ body {
 
             .text-wiggle-override {
                 position: absolute;
-                left: 25px;
+                left: 675px;
             }
 
             &::before {
@@ -145,7 +141,7 @@ body {
                 }
 
                 .text-wiggle {
-                    color: darken(#E00B32, 15%);
+                    color: @nd-primary;
                     animation: shake 1.2s cubic-bezier(.36, .07, .29, .97) infinite;
                     transform: translate3d(0, 0, 0);
                     backface-visibility: hidden;
@@ -167,6 +163,15 @@ body {
         }
     }
 
+    .home-content-wrapper {
+        background-color: @nd-primary;
+        grid-column: ~"4 / 7";
+        grid-row: ~"1 / 6";
+        background-image: url(../gfx/triangles_color.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-blend-mode: multiply;
+    }
 
 }
 
@@ -220,7 +225,7 @@ body {
 
 @keyframes preload-end {
 
-    0% {
+    50% {
         opacity: 1;
     }
 
