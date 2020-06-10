@@ -48,20 +48,21 @@ body {
     color: @layout-light;
     font-size: 28px;
     font-family: 'Courier New', Courier, monospace;
-    animation: preload-end  2s 4.9s forwards;
+    animation: preload-end 2s 4.9s forwards;
 
     .preload-animation-confines {
         display: block;
         width: 219px;
         height: 40px;
         overflow: hidden;
-        animation: preload-completed  1s 3.9s forwards;
-
+        
         .preload-text {
             display: block;
             margin: 0 auto;
+            animation: preload-end-text .4s 4.3s forwards;
+
             &::after {
-                content: "_Done";
+                content: "_";
                 animation: preload-after .65s 6 forwards;
                 opacity: 1;
             }
@@ -194,28 +195,6 @@ body {
     }
 }
 
-@keyframes preload-completed {
-
-    0% {
-        width: 219px;
-    }
-
-    2%, 18%  {
-        width: 236px;
-    }
-
-    20%, 36%  {
-        width: 251px;
-    }
-
-    38%, 54%  {
-        width: 268px;
-    }
-    56%, 72%, 100%  {
-        width: 285px;
-    }
-}
-
 @keyframes preload-after {
 
     0%,
@@ -226,6 +205,16 @@ body {
 
     50% {
         opacity: 0;
+    }
+}
+
+@keyframes preload-end-text {
+
+    0% {
+        color: @layout-light;
+    }
+    100% {
+        color: @nd-primary;
     }
 }
 
