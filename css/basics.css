@@ -1,3 +1,37 @@
+body {
+  overflow: hidden;
+}
+.preload-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #16061D;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  color: #FBF5F3;
+  font-size: 28px;
+  font-family: 'Courier New', Courier, monospace;
+  animation: preload-end 2s 4.9s forwards;
+}
+.preload-animation .preload-animation-confines {
+  display: block;
+  width: 219px;
+  height: 40px;
+  overflow: hidden;
+  animation: preload-completed 1s 3.9s forwards;
+}
+.preload-animation .preload-animation-confines .preload-text {
+  display: block;
+  margin: 0 auto;
+}
+.preload-animation .preload-animation-confines .preload-text::after {
+  content: "_Done";
+  animation: preload-after 0.65s 6 forwards;
+  opacity: 1;
+}
 .title-grid-wrapper {
   position: absolute;
   top: 0;
@@ -9,10 +43,12 @@
   grid-template-rows: repeat(5, 1fr);
   grid-gap: 10px;
   background-color: #16061D;
+  overflow: hidden;
 }
 .title-grid-wrapper .main-menu {
   display: flex;
   flex-wrap: wrap;
+  max-width: 200px;
   padding: 12px;
   grid-column: 0.5;
   grid-row: 4;
@@ -23,12 +59,13 @@
   align-items: center;
 }
 .title-grid-wrapper .main-menu .button p {
-  font-size: 40px;
+  font-size: 28px;
   font-family: 'Courier New', Courier, monospace;
   color: #FBF5F3;
   transition: color 0.1s ease-out;
   margin: 0;
   z-index: 10;
+  letter-spacing: 1px;
 }
 .title-grid-wrapper .main-menu .button .text-wiggle-override {
   position: absolute;
@@ -94,5 +131,47 @@
   32%,
   70% {
     transform: translate3d(2px, -2px, 2px);
+  }
+}
+@keyframes preload-completed {
+  0% {
+    width: 219px;
+  }
+  2%,
+  18% {
+    width: 236px;
+  }
+  20%,
+  36% {
+    width: 251px;
+  }
+  38%,
+  54% {
+    width: 268px;
+  }
+  56%,
+  72%,
+  100% {
+    width: 285px;
+  }
+}
+@keyframes preload-after {
+  0%,
+  25%,
+  75% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes preload-end {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+    pointer-events: none;
   }
 }
