@@ -55,7 +55,7 @@ body {
   display: flex;
   align-items: center;
 }
-.home-grid-wrapper .main-menu .button p {
+.home-grid-wrapper .main-menu .button .text-wiggle-override {
   font-size: 28px;
   font-family: 'Courier New', Courier, monospace;
   color: #FBF5F3;
@@ -64,9 +64,20 @@ body {
   z-index: 10;
   letter-spacing: 1px;
 }
-.home-grid-wrapper .main-menu .button .text-wiggle-override {
+.home-grid-wrapper .main-menu .button .text-wiggle-override .text-wiggle {
+  display: inline-block;
+}
+.home-grid-wrapper .main-menu .button .nav-about::before {
+  content: "ABOUT";
   position: absolute;
-  left: 675px;
+}
+.home-grid-wrapper .main-menu .button .nav-projects::before {
+  content: "PROJECTS";
+  position: absolute;
+}
+.home-grid-wrapper .main-menu .button .nav-contact::before {
+  content: "CONTACT";
+  position: absolute;
 }
 .home-grid-wrapper .main-menu .button::before {
   content: "[";
@@ -93,8 +104,9 @@ body {
 .home-grid-wrapper .main-menu .button:hover .text-wiggle-override {
   color: #E00B32;
   transition: color 0.1s ease-out;
+  animation: none;
 }
-.home-grid-wrapper .main-menu .button:hover .text-wiggle {
+.home-grid-wrapper .main-menu .button:hover .text-wiggle-override .text-wiggle {
   color: #E00B32;
   animation: shake 1.2s cubic-bezier(0.36, 0.07, 0.29, 0.97) infinite;
   transform: translate3d(0, 0, 0);
@@ -115,7 +127,7 @@ body {
   background-color: #E00B32;
   grid-column: 4 / 7;
   grid-row: 1 / 6;
-  background-image: url(https://akiamiu.github.io/akiamiu.github.io/gfx/triangles_color.svg);
+  background-image: url(../gfx/triangles_color.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: multiply;
