@@ -187,7 +187,7 @@ body {
   }
 }
 @keyframes preload-end {
-  50% {
+  75% {
     opacity: 1;
   }
   100% {
