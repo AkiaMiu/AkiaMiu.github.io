@@ -52,6 +52,7 @@ body {
 
     .preload-animation-confines {
         pointer-events: none;
+
         .preload-text {
             display: block;
             margin: 0 auto;
@@ -94,7 +95,9 @@ body {
             display: flex;
             align-items: center;
 
-            p {
+
+
+            .text-wiggle-override {
                 font-size: 28px;
                 font-family: 'Courier New', Courier, monospace;
                 color: @layout-light;
@@ -102,11 +105,31 @@ body {
                 margin: 0;
                 z-index: 10;
                 letter-spacing: 1px;
+
+                .text-wiggle {
+                    display: inline-block;
+                }
             }
 
-            .text-wiggle-override {
-                position: absolute;
-                left: 675px;
+            .nav-about {
+                &::before {
+                    content: "ABOUT";
+                    position: absolute;
+                }
+            }
+
+            .nav-projects {
+                &::before {
+                    content: "PROJECTS";
+                    position: absolute;
+                }
+            }
+
+            .nav-contact {
+                &::before {
+                    content: "CONTACT";
+                    position: absolute;
+                }
             }
 
             &::before {
@@ -138,14 +161,15 @@ body {
                 .text-wiggle-override {
                     color: @nd-primary;
                     transition: color .1s ease-out;
-                }
+                    animation: none;
 
-                .text-wiggle {
-                    color: @nd-primary;
-                    animation: shake 1.2s cubic-bezier(.36, .07, .29, .97) infinite;
-                    transform: translate3d(0, 0, 0);
-                    backface-visibility: hidden;
-                    perspective: 1000px;
+                    .text-wiggle {
+                        color: @nd-primary;
+                        animation: shake 1.2s cubic-bezier(.36, .07, .29, .97) infinite;
+                        transform: translate3d(0, 0, 0);
+                        backface-visibility: hidden;
+                        perspective: 1000px;
+                    }
                 }
 
                 &::before {
@@ -167,7 +191,7 @@ body {
         background-color: @nd-primary;
         grid-column: ~"4 / 7";
         grid-row: ~"1 / 6";
-        background-image: url(https://akiamiu.github.io/akiamiu.github.io/gfx/triangles_color.svg);
+        background-image: url(../gfx/triangles_color.svg);
         background-repeat: no-repeat;
         background-size: cover;
         background-blend-mode: multiply;
@@ -218,6 +242,7 @@ body {
     0% {
         color: @layout-light;
     }
+
     100% {
         color: @nd-primary;
     }
