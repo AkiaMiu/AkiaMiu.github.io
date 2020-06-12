@@ -58,6 +58,18 @@ body {
             margin: 0 auto;
             animation: preload-end-text .4s 3.1s forwards;
 
+        &::before {
+            content: "";
+            display: block;
+            width: 300px;
+            height: 30px;
+            position: absolute;
+            z-index: 999;
+            transform: translateX(-100%);
+            background-color: @layout-dark;
+            animation: preload-end-bar 1s 3.75s forwards;
+        }
+
             &::after {
                 content: "_";
                 animation: preload-after .65s 4 forwards;
@@ -258,5 +270,16 @@ body {
         opacity: 0;
         transform: translateX(100%);
         pointer-events: none;
+    }
+}
+
+@keyframes preload-end-bar {
+
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: scale(2);
     }
 }
